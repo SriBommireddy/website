@@ -2,8 +2,14 @@
 const navbar = ({ setActiveTab }) => {
 
   const openResumePDF = () => {
-    console.log('Opening PDF');
-    window.open(`${window.location.origin}/Sri.pdf`, '_blank');
+    const resumeUrl = `${window.location.origin}/Sri.pdf`;
+    const link = document.createElement('a');
+    link.href = resumeUrl;
+    link.download = 'SriResume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    console.log('Downloading PDF');
   };
   return (
     <nav className="px-2 border-gray-200 dark:bg-gray-900 dark:border-gray-700 h-12 grid content-center">
