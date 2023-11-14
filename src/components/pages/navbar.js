@@ -2,7 +2,7 @@
 const navbar = ({ setActiveTab }) => {
 
   const openResumePDF = () => {
-    const resumeUrl = `${window.location.origin}/Sri.pdf`;
+    const resumeUrl = 'https://raw.githubusercontent.com/SriBommireddy/website/main/public/Sri.pdf'; 
     const link = document.createElement('a');
     link.href = resumeUrl;
     link.download = 'SriResume.pdf';
@@ -11,6 +11,8 @@ const navbar = ({ setActiveTab }) => {
     document.body.removeChild(link);
     console.log('Downloading PDF');
   };
+  
+  
   return (
     <nav className="px-2 border-gray-200 dark:bg-gray-900 dark:border-gray-700 h-12 grid content-center">
       <div className="container mx-auto flex flex-wrap justify-between items-center">
