@@ -8,7 +8,7 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     backgroundImage: {
-      hero: "url('../public/bg2.jpg')",
+      hero: "url('../public/bg_img.jpg')",
     },
   },
   plugins: [],
