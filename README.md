@@ -1,1 +1,0 @@
-portfolio website in single page dynamic rendering
