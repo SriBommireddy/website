@@ -1,75 +1,113 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+
+export const experiences = [
+  {
+    image: "/website/work1.png", // Public folder images
+    company: "Cygnet Inc",
+    title: "Business Data Analyst",
+    duration: "September 2024 - Present",
+    responsibilities: [
+      "Leveraged advanced SQL and Power BI skills to analyze large datasets, delivering valuable insights for the organization.",
+      "Utilized custom Python scripts and tools like NumPy, Pandas, Matplotlib, and Plotly for extensive EDA, feature engineering, preprocessing, and visualization.",
+      "Optimized database performance by implementing indexing strategies in SQL, reducing query response time by 35%.",
+      "Seamlessly integrated the ESRI API with Python for advanced geospatial data extraction, handling over 3 million data points.",
+      "Implemented Power Automate flows for KPI-based anomaly detection in Power BI, triggering instant notifications to key stakeholders."
+    ],
+    location: "New Jersey, NJ"
+  },
+  {
+    image: "/website/work2.png", // Public folder images
+    company: "Tenet Healthcare",
+    title: "Information Systems Intern",
+    duration: "May 2024 - August 2024",
+    responsibilities: [
+      "Enhanced healthcare IT systems by integrating data from Entrust and PKI servers into ServiceNow, supporting over 5,000 assets.",
+      "Developed a real-time dashboard in ServiceNow for SSL certificate lifecycle management, reducing expiration incidents by 30%.",
+      "Utilized Agile methodology and ITIL processes for incident and change management, achieving a 20% improvement in response times.",
+      "Delivered analysis and reporting using SQL, aligning technical improvements with business requirements."
+    ],
+    location: "Dallas, TX"
+  },
+  {
+    image: "/website/work3.png", // Public folder images
+    company: "University of North Carolina",
+    title: "Student Tech Analyst",
+    duration: "August 2023 - April 2024",
+    responsibilities: [
+      "Integrated financial aid data into the university’s ERP system, optimizing the management of scholarships, grants, and loans.",
+      "Designed and deployed Tableau dashboards for real-time financial aid reporting and insights.",
+      "Streamlined data collection by implementing Power Automate, refining reporting capabilities for strategic financial planning."
+    ],
+    location: "Charlotte, NC"
+  },
+  {
+    image: "/website/work4.png", // Public folder images
+    company: "Cygnet Inc",
+    title: "Business Data Analyst Intern",
+    duration: "May 2023 - July 2023",
+    responsibilities: [
+      "Developed and maintained interactive PowerBI dashboards to monitor ticket metrics across five resolution stages.",
+      "Identified ticket resolution bottlenecks, optimizing process flow by 15%.",
+      "Performed ad-hoc data extraction and reporting using SQL and PowerBI, delivering targeted insights into support trends."
+    ],
+    location: "New Jersey, NJ"
+  }
+];
 
 const Work = () => {
-  const experiences = [
-    {
-      company: "Cygnet Inc",
-      location: "New Jersey, NJ",
-      position: "Data Analyst Intern",
-      date: "May 2023 - July 2023",
-      details: [
-        "Collaborated with product management to define and implement data strategies, ensuring data quality and integrity through cleaning and transformation using ETL tools.",
-        "Developed and monitored automated dashboards in Power BI, establishing KPIs for the operations team to track monthly sales and generate actionable insights.",
-        "Conducted root cause analysis and produced daily ad-hoc reports to update the operations team on inventory processes."
-      ]
-    },
-    {
-      company: "University of North Carolina Charlotte",
-      location: "Charlotte, NC",
-      position: "Student Tech Analyst",
-      date: "August 2023 - April 2024",
-      details: [
-        "Developed and maintained interactive dashboards to track and visualize key performance metrics.",
-        "Applied expertise in optimization mathematics, specializing in linear and nonlinear programming, alongside advanced Excel skills, including VBA, for automation and customization in data analysis.",
-        "Conducted data analysis to identify trends and areas of improvement using Excel and Power BI."
-      ]
-    },
-    {
-      company: "Tenet Healthcare",
-      location: "Dallas, TX",
-      position: "Information Systems Intern",
-      date: "May 2024 - August 2024",
-      details: [
-        "Integrated data from Entrust and PKI servers into ServiceNow, streamlining certificate management for over 5,000 assets.",
-        "Developed a real-time dashboard of certificate lifecycle in ServiceNow, reducing certificate expiration incidents by 30%.",
-        "Enhanced healthcare IT systems, improving patient care by minimizing application downtime due to expired certificates.",
-        "Collaborated with cross-functional teams to develop and implement data-driven solutions using Agile methodology."
-      ]
-    },
-    {
-      company: "Cygnet Inc",
-      location: "Data Analyst Intern Co-Op",
-      date: "September 2024 - Present",
-      details: [
-        "Leveraged advanced SQL and Power BI skills to analyze large datasets, delivering valuable insights to enhance operational efficiency.",
-        "Utilized custom Python scripts and tools like NumPy, Pandas, Matplotlib, and Plotly for extensive EDA and visualization.",
-        "Generated Power BI reports from Excel and ensured proper connections with SQL Server, enhancing report generation time.",
-        "Implemented Power Automate flows for KPI-based anomaly detection in Power BI, reducing potential losses by 15%."
-      ]
-    }
-  ];
+  const navigate = useNavigate();
 
   return (
-    <div className="p-8 md:p-12 bg-gray-100">
-      <h2 className="text-3xl font-bold mb-8 text-center">Work Experience</h2>
-      <div className="space-y-8">
-        {experiences.map((exp, index) => (
-          <div key={index} className="bg-white p-6 rounded-lg shadow-lg">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-semibold">{exp.company}</h3>
-              <p className="text-sm text-gray-600">{exp.date}</p>
+    <section id="work" className="py-12 px-4 md:px-20 lg:px-28">
+      <div className="max-w-7xl mx-auto px-0">
+        <div className="flex flex-col justify-center items-center gap-2 mb-4">
+          <h2 className="text-3xl font-bold">Work Experience</h2>
+          <div className="w-20 h-2 border-0 border-b-4 border-yellow-300 bg-yellow-500 rounded-tl-full rounded-br-full"></div>
+        </div>
+        {/* Responsive grid container */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {experiences.map((experience, index) => (
+            <div
+              key={index}
+              className={`bg-white shadow-md rounded-lg flex lg:flex-row ${index % 2 === 0
+                ? "flex-col sm:flex-row"
+                : "flex-col sm:flex-row-reverse"
+                } items-stretch sm:h-64`} // Use items-stretch to ensure consistent height
+            >
+              {/* Image Section */}
+              <div className="w-full sm:w-1/2 flex-shrink-0">
+                <img
+                  src={experience.image}
+                  alt={experience.company}
+                  className={`object-cover w-full h-full ${index % 2 === 0
+                    ? "rounded-t-lg sm:rounded-l-lg lg:rounded-none lg:rounded-l-lg"
+                    : "rounded-t-lg sm:rounded-r-lg lg:rounded-none lg:rounded-r-lg"
+                    }`}
+                  style={{ aspectRatio: "16/9" }} // Maintain consistent aspect ratio for images
+                />
+              </div>
+
+              {/* Content Section */}
+              <div className="w-full sm:w-1/2 p-6 flex flex-col justify-between text-center sm:text-left">
+                <div>
+                  <h3 className="text-xl font-semibold">{experience.company}</h3>
+                  <p className="text-gray-500">{experience.title}</p>
+                  <p className="text-sm text-gray-400">{experience.duration}</p>
+                </div>
+                <button
+                  onClick={() => navigate(`/project-overview/${index}`)}
+                  className="mt-4 bg-yellow-500 text-white px-4 py-2 rounded font-medium hover:bg-yellow-600 w-auto"
+                >
+                  View Project
+                </button>
+              </div>
             </div>
-            <p className="text-sm text-gray-500 mb-4">{exp.location}</p>
-            <p className="text-lg font-medium text-gray-800 mb-2">{exp.position}</p>
-            <ul className="list-disc ml-5 text-gray-700 space-y-2">
-              {exp.details.map((detail, i) => (
-                <li key={i}>{detail}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
